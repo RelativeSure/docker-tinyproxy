@@ -8,7 +8,7 @@ services:
     cap_drop:
       - ALL
     ports:
-      - 80:80
+      - 8888:8888
     # See tinyproxy.conf for better explanation of these values.
     environment:
       # Set to "yes" to disable the Via-header, set to empty to leave it enabled.
