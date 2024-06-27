@@ -37,7 +37,9 @@ services:
       interval: 5m
       timeout: 10s
       retries: 1
-    # volumes:
+    volumes:
+      - tinyproxy_data:/etc/tinyproxy/tinyproxy.conf
+      
     #   # If not using docker-compose for secrets, you can still manually mount a file containing the password.
     #   - ./secrets/auth_password:/run/secrets/auth_password:ro
 
@@ -45,3 +47,10 @@ services:
 # secrets:
 #   auth_password:
 #     file: ./secrets/auth_password
+volumes:
+  tinyproxy_data:
+    driver: local # Define the driver and options under the volume name
+    driver_opts:
+      type: none
+      device: /etc/tinyproxy/tinyproxy.conf
+      o: bind
